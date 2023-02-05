@@ -489,14 +489,14 @@ int unlink_file(int fd)
 
 int get_filesize(int fd)
 {
-    if (buff_fd_to_inode_map[fd] == 0)
+    int inode_id = get_inode(fd);
+    if (inode_id <= 0)
     {
         cerr << "get_filesize: file descriptor not available" << endl;
         return -1;
     }
-
-    string content = read_file(fd);
-    return content.size();
+    
+    return inode_arr[inode_id].filesize;
 }
 
 int get_num_blocks(int fd)
@@ -506,9 +506,10 @@ int get_num_blocks(int fd)
         cerr << "get_num_block: file descriptor not available" << endl;
         return -1;
     }
-
-    string content = read_file(fd);
-    int blocks = content.size() / BLOCK_SIZE_IN_BYTES + (content.size() % BLOCK_SIZE_IN_BYTES != 0);
+    
+    int filesize = get_filesize(fd);
+    
+    int blocks = filesize / BLOCK_SIZE_IN_BYTES + (filesize % BLOCK_SIZE_IN_BYTES != 0);
     return blocks;
 }
 
