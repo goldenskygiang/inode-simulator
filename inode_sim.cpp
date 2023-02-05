@@ -59,7 +59,7 @@ void create_disk()
     return;
 }
 
-void mount_disk()
+int mount_disk()
 {
     cout << "Disk name without space: ";
     cout.flush();
@@ -72,7 +72,7 @@ void mount_disk()
     if (diskptr == NULL)
     {
         cerr << "Error: Disk named \"" << name << "\" not found!";
-        return;
+        return -1;
     }
 
     load_disk_meta();
@@ -104,7 +104,7 @@ void mount_disk()
     }
 
     cout << "Virtual disk \"" << name << "\" mounted!" << endl;
-    return;
+    return 2;
 }
 
 void unmount_disk()
@@ -170,7 +170,7 @@ int main()
                 choice = 0;
                 break;
             case 2:
-                mount_disk();
+                choice = mount_disk();
                 break;
             case 3:
                 return 0;
