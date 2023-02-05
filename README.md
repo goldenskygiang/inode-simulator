@@ -23,6 +23,6 @@ Create a new 128MB virtual disk or mount an existing one to get started.
 
 ## Limitations
 
-- Theoretically it can work properly up to approx. 40MB of file size. Haven't tried larger file size yet.
+- ~Theoretically it can work properly up to approx. 40MB of file size~. Text content limit up to 4096 bytes due to `getline()`. Haven't tried larger file size yet.
 - No directory. Just files right at the root directory.
 - You can only add only one line of text content to the file. I don't intend to make a fully-featured text editor.
