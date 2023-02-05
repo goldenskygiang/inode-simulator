@@ -4,6 +4,10 @@ An Inode simulator written in C++. Feel like a real terminal yet?
 
 ## Build
 
+Install the C++ build tools. In Ubuntu, you can
+
+`sudo apt install build-essential make`
+
 Run the Makefile in this repository, then
 
 `./inode_sim`
@@ -20,6 +24,8 @@ Create a new 128MB virtual disk or mount an existing one to get started.
 `stat [filename]` - show filestat
 
 `rm [filename]` - remove (unlink) a file from the virtual disk
+
+`exit` or `umount` - unmount the current virtual disk and exit the simulator
 
 ## Limitations
 
