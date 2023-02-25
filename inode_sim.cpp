@@ -1,5 +1,6 @@
 #include "inode_sim.h"
 #include "color.h"
+#include <unistd.h>
 
 FILE *diskptr;
 
@@ -125,6 +126,8 @@ void unmount_disk()
 
 void handle_user_commands()
 {
+    cin.ignore();
+    
     while (!cin.eof())
     {
         cout << GREEN  << "you@localhost ~> " << COLOR_OFF;
